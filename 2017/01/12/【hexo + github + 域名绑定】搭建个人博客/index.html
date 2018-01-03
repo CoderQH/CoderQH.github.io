@@ -1,0 +1,785 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS Swift 开发 技巧 分享" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="摘要 Hexo 是目前最流行的博客框架之一，基于Nodejs，下面的简易教程是基于mac环境搭建的，个人域名注册于美橙互联。教程分为环境搭建，GitHub绑定和域名绑定三个部分。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【hexo + github + 域名绑定】搭建个人博客">
+<meta property="og:url" content="http://www.coderhouse.cn/2017/01/12/【hexo + github + 域名绑定】搭建个人博客/index.html">
+<meta property="og:site_name" content="五维空间">
+<meta property="og:description" content="摘要 Hexo 是目前最流行的博客框架之一，基于Nodejs，下面的简易教程是基于mac环境搭建的，个人域名注册于美橙互联。教程分为环境搭建，GitHub绑定和域名绑定三个部分。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw1024/e8988634gw1fblo8fliz7j21420j4n24.jpg">
+<meta property="og:image" content="http://ww3.sinaimg.cn/mw1024/e8988634gw1fblo8gal48j21he0ry7hw.jpg">
+<meta property="og:updated_time" content="2017-01-12T01:33:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【hexo + github + 域名绑定】搭建个人博客">
+<meta name="twitter:description" content="摘要 Hexo 是目前最流行的博客框架之一，基于Nodejs，下面的简易教程是基于mac环境搭建的，个人域名注册于美橙互联。教程分为环境搭建，GitHub绑定和域名绑定三个部分。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw1024/e8988634gw1fblo8fliz7j21420j4n24.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.coderhouse.cn/2017/01/12/【hexo + github + 域名绑定】搭建个人博客/"/>
+
+
+
+
+
+  <title>【hexo + github + 域名绑定】搭建个人博客 | 五维空间</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5ba1382cc9fd7febe0d7d8ca189b4d3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">五维空间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">五维空间</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.coderhouse.cn/2017/01/12/【hexo + github + 域名绑定】搭建个人博客/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderQH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/coderqh.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="五维空间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【hexo + github + 域名绑定】搭建个人博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-12T09:33:52+08:00">
+                2017-01-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><blockquote>
+<p>Hexo 是目前最流行的博客框架之一，基于Nodejs，下面的简易教程是基于mac环境搭建的，个人域名注册于美橙互联。教程分为环境搭建，GitHub绑定和域名绑定三个部分。</p>
+</blockquote>
+<a id="more"></a>
+<h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4><p>主要用到的工具有：homebrew，git，hexo。如果你已经安转过下面的工具，可以跳过。</p>
+<h5 id="homebrew-安装"><a href="#homebrew-安装" class="headerlink" title="homebrew 安装"></a>homebrew 安装</h5><blockquote>
+<p>$ /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”</p>
+</blockquote>
+<h5 id="git-安装"><a href="#git-安装" class="headerlink" title="git 安装"></a>git 安装</h5><blockquote>
+<p>$ brew install git</p>
+</blockquote>
+<h5 id="nodejs-安装"><a href="#nodejs-安装" class="headerlink" title="nodejs 安装"></a>nodejs 安装</h5><blockquote>
+<p>$ brew install nvm</p>
+<p>$ cd ~</p>
+<p>$ vim .bash_profile</p>
+</blockquote>
+<p>按i进入输入模式，在 bash_profile文件中写入如下命令：</p>
+<blockquote>
+<p>export NVM_DIR=~/.nvm</p>
+<p>source $(brew –prefix nvm)/nvm.sh</p>
+</blockquote>
+<p>然后按esc，:wq 回车保存自动回到刚才的界面（不要忘了:）。继续下面的命令：</p>
+<blockquote>
+<p>$ source .bash_profile</p>
+<p>$ nvm ls-remote // 查看所有的可用版本</p>
+<p>$ nvm install 4 // 下载你想要的版本 我安装的4.7.2</p>
+<p>$ nvm use 4 // 使用指定版本</p>
+<p>$ nvm alias default 4 // 默认启动版本</p>
+<p>$ npm -v // 查看版本</p>
+<p>$ node -v</p>
+</blockquote>
+<h5 id="hexo-安装"><a href="#hexo-安装" class="headerlink" title="hexo 安装"></a>hexo 安装</h5><blockquote>
+<p>$ sudo npm install hexo-cli -g</p>
+</blockquote>
+<h4 id="GitHub绑定"><a href="#GitHub绑定" class="headerlink" title="GitHub绑定"></a>GitHub绑定</h4><p>前提是你已经有一个github帐号。如下图：Owner 要和 xxx.github.io 的xxx 保持一致。 备注：xxx是的设置的用户名。</p>
+<p><img src="http://ww1.sinaimg.cn/mw1024/e8988634gw1fblo8fliz7j21420j4n24.jpg" alt=""></p>
+<blockquote>
+<p>$ hexo init blog // 放资源文件夹</p>
+<p>$ cd blog</p>
+<p>$ git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next // 安装主题</p>
+<p>$ vim _config.yml</p>
+</blockquote>
+<p>修改几个键值。</p>
+<blockquote>
+<p>title: 五维空间    // 博客名</p>
+<p>author: xxx  // 名字</p>
+<p>language: zh-Hans    // 中文</p>
+<p>theme: next   // 主题</p>
+<p>type: git    // git发布</p>
+<p>repo: <a href="https://github.com/xxx/xxx.github.io.git" target="_blank" rel="noopener">https://github.com/xxx/xxx.github.io.git</a></p>
+</blockquote>
+<p>在blog/source/_posts下主要是放你的博文了。测试一下hexo服务</p>
+<blockquote>
+<p>$ hexo s</p>
+</blockquote>
+<p>启动成功即可访问 <a href="https://localhost:4000。" target="_blank" rel="noopener">https://localhost:4000。</a><br>未成功检查异常原因。</p>
+<p>安转自动部署工具：</p>
+<blockquote>
+<p>$ npm install hexo-deployer-git –save</p>
+</blockquote>
+<p>以上都没问题，接着部署到github了。</p>
+<blockquote>
+<p>$ hexo clean  // 清除缓存文件 (db.json) 和已生成的静态文件 (public)</p>
+<p>$ hexo g        // 生成缓存和静态文件</p>
+<p>$ hexo d        // 重新部署到服务器</p>
+</blockquote>
+<p>OK。<a href="http://xxx.github.io" target="_blank" rel="noopener">http://xxx.github.io</a> 可以顺利开启了。</p>
+<h4 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h4><p>我是用的美橙注册的域名，一张图，注意看红圈部分。<br>在/blog/themes/next/source 下 touch 一个CNAME,写入域名，如在美橙的域名解析为：www.coderhouse.cn。</p>
+<p><img src="http://ww3.sinaimg.cn/mw1024/e8988634gw1fblo8gal48j21he0ry7hw.jpg" alt=""></p>
+<p>备注：</p>
+<blockquote>
+<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener"><em>hexo</em></a></p>
+<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener"><em>theme</em></a></p>
+<p><a href="http://www.coderhouse.cn/"><em>blog</em></a></p>
+</blockquote>
+<p>完。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/14/【github + gitlab + 码云】部署多个SSH-Key/" rel="prev" title="【github + gitlab + 码云】部署多个SSH-Key">
+                【github + gitlab + 码云】部署多个SSH-Key <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/coderqh.png"
+               alt="CoderQH" />
+          <p class="site-author-name" itemprop="name">CoderQH</p>
+           
+              <p class="site-description motion-element" itemprop="description">iOS开发技巧分享</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CoderQH" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.cn/CoderQH" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/5a309e1d51882534af25f02c" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#homebrew-安装"><span class="nav-number">2.1.</span> <span class="nav-text">homebrew 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-安装"><span class="nav-number">2.2.</span> <span class="nav-text">git 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nodejs-安装"><span class="nav-number">2.3.</span> <span class="nav-text">nodejs 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo-安装"><span class="nav-number">2.4.</span> <span class="nav-text">hexo 安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub绑定"><span class="nav-number">3.</span> <span class="nav-text">GitHub绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名绑定"><span class="nav-number">4.</span> <span class="nav-text">域名绑定</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderQH</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,765 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS Swift 开发 技巧 分享" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Part 111、iOS6以后增加了另一个寻找重用cell的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发技巧整理(三)">
+<meta property="og:url" content="http://www.coderhouse.cn/2017/01/20/iOS开发技巧整理(三)/index.html">
+<meta property="og:site_name" content="五维空间">
+<meta property="og:description" content="Part 111、iOS6以后增加了另一个寻找重用cell的方法">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-03T02:02:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发技巧整理(三)">
+<meta name="twitter:description" content="Part 111、iOS6以后增加了另一个寻找重用cell的方法">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"right","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.coderhouse.cn/2017/01/20/iOS开发技巧整理(三)/"/>
+
+
+
+
+
+  <title>iOS开发技巧整理(三) | 五维空间</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?a5ba1382cc9fd7febe0d7d8ca189b4d3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">五维空间</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">五维空间</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.coderhouse.cn/2017/01/20/iOS开发技巧整理(三)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="CoderQH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/coderqh.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="五维空间">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS开发技巧整理(三)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-20T14:29:52+08:00">
+                2017-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="Part-11"><a href="#Part-11" class="headerlink" title="Part 11"></a>Part 11</h4><p>1、iOS6以后增加了另一个寻找重用cell的方法</p>
+<a id="more"></a>
+<blockquote>
+<p>dequeueReusableCellWithIdentifier:forIndexPath:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 具体实现为</span><br><span class="line">static NSString *cellIdentifier = @&quot;cellIdentifier&quot;;</span><br><span class="line">[self.tableView registerClass:[MyCell class] forCellReuseIdentifier:cellIdentifier];</span><br><span class="line">UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];</span><br></pre></td></tr></table></figure>
+<p>2、iOS设备分辨率</p>
+<table>
+<thead>
+<tr>
+<th>iPhone设备</th>
+<th>设备分辨率 / Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3GS</td>
+<td>320x480 / @1x 3.5</td>
+</tr>
+<tr>
+<td>4(s)</td>
+<td>640x960 / @2x 3.5</td>
+</tr>
+<tr>
+<td>5/5c/5s/se</td>
+<td>640x1136 / @2x 4</td>
+</tr>
+<tr>
+<td>6/6s/7</td>
+<td>750x1334 / @2x 4.7</td>
+</tr>
+<tr>
+<td>6+/6s+/7+</td>
+<td>1080x1920 / @3x 5.5</td>
+</tr>
+</tbody>
+</table>
+<p>3、AFN 请求格式</p>
+<p>需要注意的是,默认提交请求的数据是二进制的,返回格式是JSON</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">AFHTTPRequestSerializer            二进制格式</span><br><span class="line">AFJSONRequestSerializer            JSON</span><br><span class="line">AFPropertyListRequestSerializer    PList(是一种特殊的XML,解析起来相对容易)</span><br></pre></td></tr></table></figure>
+<p>4、AFN 返回格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">AFHTTPResponseSerializer           二进制格式</span><br><span class="line">AFJSONResponseSerializer           JSON</span><br><span class="line">AFXMLParserResponseSerializer      XML,只能返回XMLParser,还需要自己通过代理方法解析</span><br><span class="line">AFXMLDocumentResponseSerializer    (Mac)</span><br><span class="line">AFPropertyListResponseSerializer   PList</span><br><span class="line">AFImageResponseSerializer          Image</span><br><span class="line">AFCompoundResponseSerializer       组合</span><br></pre></td></tr></table></figure>
+<p>5、判断UIScrollView的滑动方向</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView &#123;</span><br><span class="line">    historyY = scrollView.contentOffset.y; // 全局属性</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)scrollViewDidScroll:(UIScrollView *)scrollView &#123;</span><br><span class="line">    if (scrollView.contentOffset.y &lt; historyY) &#123;</span><br><span class="line">        NSLog(@&quot;down&quot;);</span><br><span class="line">    &#125; else if (scrollView.contentOffset.y &gt; historyY) &#123;</span><br><span class="line">        NSLog(@&quot;up&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>6、iOS 字典转模型中出现id</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (instancetype)init&#123;</span><br><span class="line"></span><br><span class="line">    if (self = [super init]) &#123;</span><br><span class="line"></span><br><span class="line">        [GXNewsItemModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *&#123;</span><br><span class="line">            return @&#123;</span><br><span class="line">                     @&quot;ID&quot; : @&quot;id&quot;</span><br><span class="line">                     &#125;;</span><br><span class="line">        &#125;];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    return self;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7、iOS10推送通知适配</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 前台：</span><br><span class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler</span><br><span class="line"></span><br><span class="line">// 后台：</span><br><span class="line">- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler</span><br></pre></td></tr></table></figure>
+<p>8、iOS 转义字符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">\b - 退格</span><br><span class="line">\f - Form feed</span><br><span class="line">\n - 换行</span><br><span class="line">\r - 回车</span><br><span class="line">\t - 水平制表符</span><br><span class="line">\v - 垂直制表符</span><br><span class="line">\\ - 反斜杠</span><br><span class="line">\&quot; - 双引号</span><br><span class="line">\&apos; - 单引号</span><br></pre></td></tr></table></figure></p>
+<p>9、iOS 时间格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];</span><br><span class="line">[inputFormatter setDateFormat:@&quot;MM dd yyyy  h:mmaa&quot;];</span><br><span class="line"></span><br><span class="line">// 转换时一定要设置locale</span><br><span class="line">inputFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@&quot;en_US_POSIX&quot;];</span><br><span class="line"></span><br><span class="line">NSDate *inputDate = [inputFormatter dateFromString:dateStr];</span><br><span class="line"></span><br><span class="line">// 具体格式：</span><br><span class="line"></span><br><span class="line">G:         公元时代，例如AD公元</span><br><span class="line">yy:     年的后2位</span><br><span class="line">yyyy:     完整年</span><br><span class="line">MM:     月，显示为1-12,带前置0</span><br><span class="line">MMM:     月，显示为英文月份简写,如 Jan</span><br><span class="line">MMMM:     月，显示为英文月份全称，如 Janualy</span><br><span class="line">dd:     日，2位数表示，如02</span><br><span class="line">d:         日，1-2位显示，如2，无前置0</span><br><span class="line">EEE:     简写星期几，如Sun</span><br><span class="line">EEEE:     全写星期几，如Sunday</span><br><span class="line">aa:     上下午，AM/PM</span><br><span class="line">H:         时，24小时制，0-23</span><br><span class="line">HH:     时，24小时制，带前置0</span><br><span class="line">h:         时，12小时制，无前置0</span><br><span class="line">hh:     时，12小时制，带前置0</span><br><span class="line">m:         分，1-2位</span><br><span class="line">mm:     分，2位，带前置0</span><br><span class="line">s:         秒，1-2位</span><br><span class="line">ss:     秒，2位，带前置0</span><br><span class="line">S:         毫秒</span><br><span class="line">Z：        GMT（时区）</span><br></pre></td></tr></table></figure>
+<p>10、iOS 返回到指定界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for (UIViewController *controller in self.navigationController.viewControllers)</span><br><span class="line">&#123;</span><br><span class="line">      if ([controller isKindOfClass:[你要跳转到的Controller class]]) &#123;</span><br><span class="line">          [self.navigationController popToViewController:controller animated:YES];</span><br><span class="line">      &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>11、 获取URL的指定参数对应值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">- (NSString *) returnParamValueOfUrl:(NSString *)url withParam:(NSString *)param&#123;</span><br><span class="line"></span><br><span class="line">    NSError *error;</span><br><span class="line">    NSString *regTags=[[NSString alloc] initWithFormat:@&quot;(^|&amp;|\\?)+%@=+([^&amp;]*)(&amp;|$)&quot;,param];</span><br><span class="line">    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:regTags</span><br><span class="line">                                                                           options:NSRegularExpressionCaseInsensitive</span><br><span class="line">                                                                             error:&amp;error];</span><br><span class="line">    NSArray *matches = [regex matchesInString:url</span><br><span class="line">                                      options:0</span><br><span class="line">                                        range:NSMakeRange(0, [url length])];</span><br><span class="line">    for (NSTextCheckingResult *match in matches) &#123;</span><br><span class="line">        NSString *tagValue = [url substringWithRange:[match rangeAtIndex:2]];  // 分组2所对应的串</span><br><span class="line">        return tagValue;</span><br><span class="line">    &#125;</span><br><span class="line">    return nil;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/19/iOS开发技巧整理(二)/" rel="next" title="iOS开发技巧整理(二)">
+                <i class="fa fa-chevron-left"></i> iOS开发技巧整理(二)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/23/iOS开发技巧整理(四)/" rel="prev" title="iOS开发技巧整理(四)">
+                iOS开发技巧整理(四) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/coderqh.png"
+               alt="CoderQH" />
+          <p class="site-author-name" itemprop="name">CoderQH</p>
+           
+              <p class="site-description motion-element" itemprop="description">iOS开发技巧分享</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/CoderQH" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://weibo.cn/CoderQH" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/5a309e1d51882534af25f02c" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-book"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Part-11"><span class="nav-number">1.</span> <span class="nav-text">Part 11</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CoderQH</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
