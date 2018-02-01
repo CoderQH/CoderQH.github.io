@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="摘要 待更新">
+<meta name="description" content="摘要 声音是波。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="音视频之基础知识简单整理">
 <meta property="og:url" content="http://www.coderhouse.cn/2018/02/01/音视频之基础知识简单整理/index.html">
 <meta property="og:site_name" content="五维空间">
-<meta property="og:description" content="摘要 待更新">
+<meta property="og:description" content="摘要 声音是波。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-01T07:20:30.000Z">
+<meta property="og:updated_time" content="2018-02-01T08:56:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="音视频之基础知识简单整理">
-<meta name="twitter:description" content="摘要 待更新">
+<meta name="twitter:description" content="摘要 声音是波。">
 
 
 
@@ -331,9 +331,57 @@
 
       
         <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><blockquote>
-<p>待更新</p>
+<p>声音是波。</p>
 </blockquote>
 <a id="more"></a>
+<p>Part 8</p>
+<p>1、声波的三要素</p>
+<ul>
+<li>频率、振幅和波形。频率代表音阶的高低，振幅代表着响度，波形代表着音色。</li>
+</ul>
+<p>2、数字音频 </p>
+<ul>
+<li>采样：在时间轴上对信号进行数字化【采样定理】；</li>
+<li>量化：在幅度轴上对信号进行数字化；</li>
+<li>编码：按照一定的格式记录采样和量化后的数字音频。</li>
+</ul>
+<p>3、PCM</p>
+<ul>
+<li>音频的裸数据格式: 脉冲编码调制（Pulse Code Modulation）数据；</li>
+<li>PCM描述: 量化格式，采样率，声道数;</li>
+<li>分贝是描述声音强度的单位（dB）。</li>
+</ul>
+<p>4、音频编码</p>
+<ul>
+<li>压缩编码实际上是压缩掉冗余信号；</li>
+<li>WAV编码、MP3编码、AAC编码和Ogg编码。</li>
+<li>ISO制定的JPEG压缩算法</li>
+</ul>
+<p>5、图像</p>
+<ul>
+<li>任何一个图像都可以有RGB表示，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">RGB色彩模式是工业界的一种颜色标准，是通过对红(R)、绿(G)、蓝(B)三个颜色通道的变化以及它们相互之间的叠加来得到各式各样的颜色的，RGB即是代表红、绿、蓝三个通道的颜色，这个标准几乎包括了人类视力所能感知的所有颜色，是目前运用最广的颜色系统之一。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>6、视频</p>
+<ul>
+<li>视频帧的裸数据更多用YUV表示。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">YUV主要用于优化彩色视频信号的传输，使其向后相容老式黑白电视。与RGB视频信号传输相比，它最大的优点在于只需占用极少的频宽（RGB要求三个独立的视频信号同时传输）。其中“Y”表示明亮度（Luminance或Luma），也就是灰阶值；而“U”和“V” 表示的则是色度（Chrominance或Chroma），作用是描述影像色彩及饱和度，用于指定像素的颜色。“亮度”是透过RGB输入信号来建立的，方法是将RGB信号的特定部分叠加到一起。“色度”则定义了颜色的两个方面─色调与饱和度，分别用Cr和Cb来表示。其中，Cr反映了RGB输入信号红色部分与RGB信号亮度值之间的差异。而Cb反映的是RGB输入信号蓝色部分与RGB信号亮度值之间的差异。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>7、视频编码</p>
+<ul>
+<li>视频压缩是压缩冗余信息。</li>
+<li>使用帧间编码技术去除时间上的冗余信息：运动补偿、运动表示和运动估计；</li>
+<li>通过帧内编码技术去除空间上的冗余信息。</li>
+<li>ISO制定的MPEG系列算法和ITU-T制定的H.26x系列算法。</li>
+<li>DTS：视频解码。</li>
+</ul>
+<p>8、IPB帧</p>
+<ul>
+<li>I帧：帧内编码帧 GOP的第一帧；</li>
+<li>P帧：前向预测编码帧，预测帧；</li>
+<li>B帧：双向预测内插编码帧，双向预测帧。</li>
+</ul>
+
       
     </div>
 
