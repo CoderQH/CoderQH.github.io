@@ -93,20 +93,17 @@
 
 
 
-<meta name="description" content="官网  http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 下载好jdk dmg版本双击安装。">
+<meta name="description" content="摘要 最近一直在做CFV项目，期间遇到了不少问题，现收集整理如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mac环境JDK环境安装配置">
-<meta property="og:url" content="http://www.coderhouse.cn/2017/12/13/mac环境JDK环境安装配置/index.html">
+<meta property="og:title" content="Cordova + Framework7 + Vue 简单总结">
+<meta property="og:url" content="http://www.coderhouse.cn/2018/01/09/Cordova + Framework7 + Vue简单总结/index.html">
 <meta property="og:site_name" content="五维空间">
-<meta property="og:description" content="官网  http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 下载好jdk dmg版本双击安装。">
+<meta property="og:description" content="摘要 最近一直在做CFV项目，期间遇到了不少问题，现收集整理如下：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1206625-d91adf87c3fc76a2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/1206625-5ee3bdec31b4fa89.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-01-03T02:02:33.000Z">
+<meta property="og:updated_time" content="2018-02-01T02:20:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mac环境JDK环境安装配置">
-<meta name="twitter:description" content="官网  http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html 下载好jdk dmg版本双击安装。">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/1206625-d91adf87c3fc76a2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Cordova + Framework7 + Vue 简单总结">
+<meta name="twitter:description" content="摘要 最近一直在做CFV项目，期间遇到了不少问题，现收集整理如下：">
 
 
 
@@ -134,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://www.coderhouse.cn/2017/12/13/mac环境JDK环境安装配置/"/>
+  <link rel="canonical" href="http://www.coderhouse.cn/2018/01/09/Cordova + Framework7 + Vue简单总结/"/>
 
 
 
 
 
-  <title>mac环境JDK环境安装配置 | 五维空间</title>
+  <title>Cordova + Framework7 + Vue 简单总结 | 五维空间</title>
   
 
 
@@ -269,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.coderhouse.cn/2017/12/13/mac环境JDK环境安装配置/">
+    <link itemprop="mainEntityOfPage" href="http://www.coderhouse.cn/2018/01/09/Cordova + Framework7 + Vue简单总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoderQH">
@@ -286,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mac环境JDK环境安装配置</h1>
+          <h1 class="post-title" itemprop="name headline">Cordova + Framework7 + Vue 简单总结</h1>
         
 
         <div class="post-meta">
@@ -298,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-13T10:41:20+08:00">
-                2017-12-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-09T08:53:04+08:00">
+                2018-01-09
               </time>
             
 
@@ -333,24 +330,68 @@
       
 
       
-        <ul>
-<li>官网  <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a> 下载好jdk dmg版本双击安装。</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1206625-d91adf87c3fc76a2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+        <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><blockquote>
+<p>最近一直在做CFV项目，期间遇到了不少问题，现收集整理如下：</p>
+</blockquote>
 <a id="more"></a>
+<p>1、点击空白部分界面消失</p>
+<blockquote>
+<p>通常做饭是做一个遮罩层，在遮罩层上添加方法，F7提供了各种弹窗操作，可以借助完成，还可以借助Cordova，调用原生处理。</p>
+</blockquote>
+<p>2、v-if和v-show的区别</p>
+<p>需要频繁切换用v-show。</p>
 <ul>
-<li>vim .bash_profile </li>
+<li>v-if 的初始化较快，但切换代价高; v-show初始化慢，但切换成本低。</li>
+<li>v-if是动态的向DOM树内添加或者删除DOM元素，有更高的切换消耗。</li>
+<li>v-show是通过设置DOM元素的display样式属性控制显隐，更高的初始渲染消耗。</li>
 </ul>
-<p>i 插入模式 配置如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export CLASSPAHT=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure>
-<p>esc 然后 :wq 强制保存。</p>
+<p>3、fixed和absolute定位区别</p>
+<p>fixed:固定定位<br>absolute:绝对定位</p>
+<p>区别：</p>
 <ul>
-<li><p>source .bash_profile // 立即生效</p>
-</li>
-<li><p>java -version // 查看版本</p>
-</li>
+<li>没有滚动条的情况下没有差异</li>
+<li>在有滚动条的情况下，fixed定位不会随滚动条移动而移动，而absolute则会随滚动条移动</li>
 </ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/1206625-5ee3bdec31b4fa89.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<p>做键盘底部弹出，让输入框跟随移动，用fixed把输入框定在底部，但是ios手机下用户用第三方键盘，输入框会被遮挡，期间采用了cordova的键盘处理插件，但是效果不好，最后采用的方案是弹出新页面操作。</p>
+<p>4、Vue 的数据通信</p>
+<ul>
+<li>顺传，用property即可。</li>
+<li>逆传，提前给A页面绑定执行的方法，B页面emit执行方法即可。</li>
+<li>跨层，提前注入需要执行的方法，用emit。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let eventManager = new Vue()</span><br><span class="line">eventManager.$on(&quot;change&quot;, function(params) &#123;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">eventManager.$emit(&apos;change&apos;,&apos;参数&apos;)</span><br></pre></td></tr></table></figure>
+<p>5、关闭eslint检测</p>
+<p>webpack.base.conf.js 配置文件中的eslint rules注释掉即可。</p>
+<p>6、修改Framework7 默认文字显示</p>
+<p>在初始化Framework7 的时候，查看F7的文档，取得属性值，修改即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">framework7: &#123;</span><br><span class="line">    root: &apos;#app&apos;,</span><br><span class="line">    /* Uncomment to enable Material theme: */</span><br><span class="line">    // material: true,</span><br><span class="line">    routes: Routes,</span><br><span class="line">    modalButtonOk:	&apos;确定&apos;,</span><br><span class="line">    modalButtonCancel: &apos;取消&apos;,</span><br><span class="line">    pushState: true // android 返回</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>7、Vue 设置全局变量</p>
+<blockquote>
+<p>global.属性</p>
+</blockquote>
+<p>8、VSCode 断点调试</p>
+<p>在webpack.base.conf.js 的 publicPath 新增</p>
+<blockquote>
+<p>devtoolModuleFilenameTemplate: ‘../[resource-path]’</p>
+</blockquote>
+<p>配置launch.json</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    // 使用 IntelliSense 了解相关属性。 </span><br><span class="line">    // 悬停以查看现有属性的描述。</span><br><span class="line">    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;chrome&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;Launch Chrome against localhost&quot;,</span><br><span class="line">            &quot;url&quot;: &quot;http://localhost:8088&quot;,</span><br><span class="line">            &quot;webRoot&quot;: &quot;$&#123;workspaceRoot&#125;/src/app.vue&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>9、真机调试问题</p>
+<blockquote>
+<p>cordova + f7 调试流程比较麻烦，每次修改都要build, 可以用 http-server mock 模拟数据结构。</p>
+</blockquote>
+<p>10、其他分享</p>
+<p>CSS入门：一个相当经典的教程。<br><a href="http://www.blueidea.com/tech/web/2007/4545.asp" target="_blank" rel="noopener">http://www.blueidea.com/tech/web/2007/4545.asp</a></p>
+<p>Stylus：提供一个高效的、动态的方式来生成CSS。<br><a href="https://www.npmjs.com/package/stylus。" target="_blank" rel="noopener">https://www.npmjs.com/package/stylus。</a></p>
+<p>http-server：本地开启http服务器来模拟服务器取数据。</p>
+<p>HiApp:<br>一个简单而有趣的Cordova + Framework7 + Vue混合应用程序。通过Cordova，可以轻松地将其转换为原生iOS应用程序。</p>
+<ul>
+<li>Hybrid 版本：<a href="https://github.com/BelinChung/HiApp" target="_blank" rel="noopener">https://github.com/BelinChung/HiApp</a></li>
+<li>React Native 版本:<a href="https://github.com/BelinChung/react-native-hiapp" target="_blank" rel="noopener">https://github.com/BelinChung/react-native-hiapp</a> </li>
+<li>Demo: <a href="https://hi.dearb.me/" target="_blank" rel="noopener">https://hi.dearb.me/</a></li>
+</ul>
+<p>草图布局：<br><a href="https://codepen.io/oslego/pen/XdvWmd" target="_blank" rel="noopener">https://codepen.io/oslego/pen/XdvWmd</a></p>
+<p>vue-croppa：cropper的Vue版本<br><a href="https://zhanziyang.github.io/vue-croppa/#/" target="_blank" rel="noopener">https://zhanziyang.github.io/vue-croppa/#/</a></p>
 
       
     </div>
@@ -387,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/27/微信Mars跨平台组件iOS端消息调用流程/" rel="next" title="微信Mars跨平台组件iOS端消息调用流程">
-                <i class="fa fa-chevron-left"></i> 微信Mars跨平台组件iOS端消息调用流程
+              <a href="/2017/12/13/iOS开发之最新CocoaPods安装/" rel="next" title="iOS开发之最新CocoaPods安装">
+                <i class="fa fa-chevron-left"></i> iOS开发之最新CocoaPods安装
               </a>
             
           </div>
@@ -397,8 +438,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/13/iOS开发之制作framework/" rel="prev" title="iOS开发之制作framework">
-                iOS开发之制作framework <i class="fa fa-chevron-right"></i>
+              <a href="/2018/02/01/音视频之基础知识简单整理/" rel="prev" title="音视频之基础知识简单整理">
+                音视频之基础知识简单整理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -452,8 +493,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/coderqh.png"
@@ -526,6 +576,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
