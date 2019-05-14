@@ -93,20 +93,19 @@
 
 
 
-<meta name="description" content="摘要 Hexo 是目前最流行的博客框架之一，基于Nodejs，下面的简易教程是基于mac环境搭建的，个人域名注册于美橙互联。教程分为环境搭建，GitHub绑定和域名绑定三个部分。">
+<meta name="description" content="摘要 公司不同的项目可能部署在不同的服务器上，这样我们需要配置不同的SSH-Key与之对应，方便工作。使用SSH公钥可以让你的电脑和远程通讯的时候使用安全连接（git的remote要使用SSH地址）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【hexo + github + 域名绑定】搭建个人博客">
-<meta property="og:url" content="http://www.coderhouse.cn/2017/01/12/【hexo + github + 域名绑定】搭建个人博客/index.html">
+<meta property="og:title" content="【github + gitlab + 码云】部署多个SSH-Key">
+<meta property="og:url" content="http://www.coderhouse.cn/2018/01/03/【github + gitlab + 码云】部署多个SSH-Key/index.html">
 <meta property="og:site_name" content="五维空间">
-<meta property="og:description" content="摘要 Hexo 是目前最流行的博客框架之一，基于Nodejs，下面的简易教程是基于mac环境搭建的，个人域名注册于美橙互联。教程分为环境搭建，GitHub绑定和域名绑定三个部分。">
+<meta property="og:description" content="摘要 公司不同的项目可能部署在不同的服务器上，这样我们需要配置不同的SSH-Key与之对应，方便工作。使用SSH公钥可以让你的电脑和远程通讯的时候使用安全连接（git的remote要使用SSH地址）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ww1.sinaimg.cn/mw1024/e8988634gw1fblo8fliz7j21420j4n24.jpg">
-<meta property="og:image" content="http://ww3.sinaimg.cn/mw1024/e8988634gw1fblo8gal48j21he0ry7hw.jpg">
-<meta property="og:updated_time" content="2017-01-12T01:33:52.000Z">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/e8988634gw1fbq1dd1nvdj21680mggtm.jpg">
+<meta property="og:updated_time" content="2018-01-03T02:30:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【hexo + github + 域名绑定】搭建个人博客">
-<meta name="twitter:description" content="摘要 Hexo 是目前最流行的博客框架之一，基于Nodejs，下面的简易教程是基于mac环境搭建的，个人域名注册于美橙互联。教程分为环境搭建，GitHub绑定和域名绑定三个部分。">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw1024/e8988634gw1fblo8fliz7j21420j4n24.jpg">
+<meta name="twitter:title" content="【github + gitlab + 码云】部署多个SSH-Key">
+<meta name="twitter:description" content="摘要 公司不同的项目可能部署在不同的服务器上，这样我们需要配置不同的SSH-Key与之对应，方便工作。使用SSH公钥可以让你的电脑和远程通讯的时候使用安全连接（git的remote要使用SSH地址）。">
+<meta name="twitter:image" content="http://ww2.sinaimg.cn/mw690/e8988634gw1fbq1dd1nvdj21680mggtm.jpg">
 
 
 
@@ -134,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://www.coderhouse.cn/2017/01/12/【hexo + github + 域名绑定】搭建个人博客/"/>
+  <link rel="canonical" href="http://www.coderhouse.cn/2018/01/03/【github + gitlab + 码云】部署多个SSH-Key/"/>
 
 
 
 
 
-  <title>【hexo + github + 域名绑定】搭建个人博客 | 五维空间</title>
+  <title>【github + gitlab + 码云】部署多个SSH-Key | 五维空间</title>
   
 
 
@@ -269,7 +268,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.coderhouse.cn/2017/01/12/【hexo + github + 域名绑定】搭建个人博客/">
+    <link itemprop="mainEntityOfPage" href="http://www.coderhouse.cn/2018/01/03/【github + gitlab + 码云】部署多个SSH-Key/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="CoderQH">
@@ -286,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">【hexo + github + 域名绑定】搭建个人博客</h1>
+          <h1 class="post-title" itemprop="name headline">【github + gitlab + 码云】部署多个SSH-Key</h1>
         
 
         <div class="post-meta">
@@ -298,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-12T09:33:52+08:00">
-                2017-01-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-03T10:30:21+08:00">
+                2018-01-03
               </time>
             
 
@@ -334,80 +333,38 @@
 
       
         <h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><blockquote>
-<p>Hexo 是目前最流行的博客框架之一，基于Nodejs，下面的简易教程是基于mac环境搭建的，个人域名注册于美橙互联。教程分为环境搭建，GitHub绑定和域名绑定三个部分。</p>
+<p>公司不同的项目可能部署在不同的服务器上，这样我们需要配置不同的SSH-Key与之对应，方便工作。使用SSH公钥可以让你的电脑和远程通讯的时候使用安全连接（git的remote要使用SSH地址）。</p>
 </blockquote>
 <a id="more"></a>
-<h4 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h4><p>主要用到的工具有：homebrew，git，hexo。如果你已经安转过下面的工具，可以跳过。</p>
-<h5 id="homebrew-安装"><a href="#homebrew-安装" class="headerlink" title="homebrew 安装"></a>homebrew 安装</h5><blockquote>
-<p>$ /usr/bin/ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="noopener">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”</p>
+<h4 id="生成SSH-Key"><a href="#生成SSH-Key" class="headerlink" title="生成SSH-Key"></a>生成SSH-Key</h4><h5 id="github"><a href="#github" class="headerlink" title="github"></a>github</h5><blockquote>
+<p>$ ssh-keygen -t rsa -C “你的Email” -f ~/.ssh/github-rsa</p>
+<p>$ cat ~/.ssh/github-rsa.pub</p>
 </blockquote>
-<h5 id="git-安装"><a href="#git-安装" class="headerlink" title="git 安装"></a>git 安装</h5><blockquote>
-<p>$ brew install git</p>
+<p>复制.pub文件全部内容到网站ssh即可。</p>
+<p><img src="http://ww2.sinaimg.cn/mw690/e8988634gw1fbq1dd1nvdj21680mggtm.jpg" alt="image"></p>
+<h5 id="gitlab"><a href="#gitlab" class="headerlink" title="gitlab"></a>gitlab</h5><blockquote>
+<p>$ ssh-keygen -t rsa -C “你的Email” -f ~/.ssh/gitlab-rsa</p>
+<p>$ cat ~/.ssh/gitlab-rsa.pub</p>
 </blockquote>
-<h5 id="nodejs-安装"><a href="#nodejs-安装" class="headerlink" title="nodejs 安装"></a>nodejs 安装</h5><blockquote>
-<p>$ brew install nvm</p>
-<p>$ cd ~</p>
-<p>$ vim .bash_profile</p>
+<p>同上~</p>
+<h5 id="码云"><a href="#码云" class="headerlink" title="码云"></a>码云</h5><blockquote>
+<p>$ ssh-keygen -t rsa -C “你的Email” -f ~/.ssh/gitoschina-rsa</p>
+<p>$ cat ~/.ssh/gitoschina-rsa.pub</p>
 </blockquote>
-<p>按i进入输入模式，在 bash_profile文件中写入如下命令：</p>
+<p>同上~</p>
+<h4 id="配置Config"><a href="#配置Config" class="headerlink" title="配置Config"></a>配置Config</h4><p>在 ~/.ssh 目录下创建config</p>
 <blockquote>
-<p>export NVM_DIR=~/.nvm</p>
-<p>source $(brew –prefix nvm)/nvm.sh</p>
+<p>$ touch config</p>
 </blockquote>
-<p>然后按esc，:wq 回车保存自动回到刚才的界面（不要忘了:）。继续下面的命令：</p>
+<p>具体配置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># github</span><br><span class="line">Host https://github.com</span><br><span class="line">    HostName https://github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/gihub_rsa</span><br><span class="line"></span><br><span class="line"># gitlab</span><br><span class="line">Host http://gitlab.xxx.com:8000</span><br><span class="line">    HostName http://gitlab.xxx.com:8000</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/gitlab_rsa</span><br><span class="line"></span><br><span class="line"># 码云</span><br><span class="line">Host http://git.oschina.net</span><br><span class="line">    HostName http://git.oschina.net</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/gitoschina_rsa</span><br></pre></td></tr></table></figure>
+<h4 id="测试SSH-key"><a href="#测试SSH-key" class="headerlink" title="测试SSH-key"></a>测试SSH-key</h4><p>分别执行如下命令：</p>
 <blockquote>
-<p>$ source .bash_profile</p>
-<p>$ nvm ls-remote // 查看所有的可用版本</p>
-<p>$ nvm install 4 // 下载你想要的版本 我安装的4.7.2</p>
-<p>$ nvm use 4 // 使用指定版本</p>
-<p>$ nvm alias default 4 // 默认启动版本</p>
-<p>$ npm -v // 查看版本</p>
-<p>$ node -v</p>
+<p>$ ssh -T git@github.com</p>
+<p>$ ssh -T git@gitlab.xxx.com</p>
+<p>$ ssh -T git@git.oschina.net</p>
 </blockquote>
-<h5 id="hexo-安装"><a href="#hexo-安装" class="headerlink" title="hexo 安装"></a>hexo 安装</h5><blockquote>
-<p>$ sudo npm install hexo-cli -g</p>
-</blockquote>
-<h4 id="GitHub绑定"><a href="#GitHub绑定" class="headerlink" title="GitHub绑定"></a>GitHub绑定</h4><p>前提是你已经有一个github帐号。如下图：Owner 要和 xxx.github.io 的xxx 保持一致。 备注：xxx是的设置的用户名。</p>
-<p><img src="http://ww1.sinaimg.cn/mw1024/e8988634gw1fblo8fliz7j21420j4n24.jpg" alt=""></p>
-<blockquote>
-<p>$ hexo init blog // 放资源文件夹</p>
-<p>$ cd blog</p>
-<p>$ git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next // 安装主题</p>
-<p>$ vim _config.yml</p>
-</blockquote>
-<p>修改几个键值。</p>
-<blockquote>
-<p>title: 五维空间    // 博客名</p>
-<p>author: xxx  // 名字</p>
-<p>language: zh-Hans    // 中文</p>
-<p>theme: next   // 主题</p>
-<p>type: git    // git发布</p>
-<p>repo: <a href="https://github.com/xxx/xxx.github.io.git" target="_blank" rel="noopener">https://github.com/xxx/xxx.github.io.git</a></p>
-</blockquote>
-<p>在blog/source/_posts下主要是放你的博文了。测试一下hexo服务</p>
-<blockquote>
-<p>$ hexo s</p>
-</blockquote>
-<p>启动成功即可访问 <a href="https://localhost:4000。" target="_blank" rel="noopener">https://localhost:4000。</a><br>未成功检查异常原因。</p>
-<p>安转自动部署工具：</p>
-<blockquote>
-<p>$ npm install hexo-deployer-git –save</p>
-</blockquote>
-<p>以上都没问题，接着部署到github了。</p>
-<blockquote>
-<p>$ hexo clean  // 清除缓存文件 (db.json) 和已生成的静态文件 (public)</p>
-<p>$ hexo g        // 生成缓存和静态文件</p>
-<p>$ hexo d        // 重新部署到服务器</p>
-</blockquote>
-<p>OK。<a href="http://xxx.github.io" target="_blank" rel="noopener">http://xxx.github.io</a> 可以顺利开启了。</p>
-<h4 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h4><p>我是用的美橙注册的域名，一张图，注意看红圈部分。<br>在/blog/themes/next/source 下 touch 一个CNAME,写入域名，如在美橙的域名解析为：www.coderhouse.cn。</p>
-<p><img src="http://ww3.sinaimg.cn/mw1024/e8988634gw1fblo8gal48j21he0ry7hw.jpg" alt=""></p>
-<p>备注：</p>
-<blockquote>
-<p><a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener"><em>hexo</em></a></p>
-<p><a href="https://hexo.io/themes/" target="_blank" rel="noopener"><em>theme</em></a></p>
-<p><a href="http://www.coderhouse.cn/"><em>blog</em></a></p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Welcome to Git@OSC, CoderQH!</span><br><span class="line"></span><br><span class="line">Hi CoderQH! You&apos;ve successfully authenticated.</span><br></pre></td></tr></table></figure>
 <p>完。</p>
 
       
@@ -445,14 +402,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/01/03/iOS开发技巧整理(一)/" rel="next" title="iOS开发技巧整理(一)">
+                <i class="fa fa-chevron-left"></i> iOS开发技巧整理(一)
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/01/24/Crash日志符号化三部曲/" rel="prev" title="Crash日志符号化三部曲">
-                Crash日志符号化三部曲 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/01/03/QuincyKit + KSCrash 搭建Crash日志管理系统/" rel="prev" title="QuincyKit + KSCrash 搭建Crash日志管理系统">
+                QuincyKit + KSCrash 搭建Crash日志管理系统 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -599,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#homebrew-安装"><span class="nav-number">2.1.</span> <span class="nav-text">homebrew 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#git-安装"><span class="nav-number">2.2.</span> <span class="nav-text">git 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#nodejs-安装"><span class="nav-number">2.3.</span> <span class="nav-text">nodejs 安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#hexo-安装"><span class="nav-number">2.4.</span> <span class="nav-text">hexo 安装</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GitHub绑定"><span class="nav-number">3.</span> <span class="nav-text">GitHub绑定</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域名绑定"><span class="nav-number">4.</span> <span class="nav-text">域名绑定</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#摘要"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成SSH-Key"><span class="nav-number">2.</span> <span class="nav-text">生成SSH-Key</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#github"><span class="nav-number">2.1.</span> <span class="nav-text">github</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gitlab"><span class="nav-number">2.2.</span> <span class="nav-text">gitlab</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#码云"><span class="nav-number">2.3.</span> <span class="nav-text">码云</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置Config"><span class="nav-number">3.</span> <span class="nav-text">配置Config</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试SSH-key"><span class="nav-number">4.</span> <span class="nav-text">测试SSH-key</span></a></li></ol></div>
             
 
           </div>
